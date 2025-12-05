@@ -13,17 +13,28 @@
         <span class="logo-icon">🌱</span>
         <span class="logo-text">GreenSense</span>
       </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
         <li><a href="#specs">Specs</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
-      <button class="btn btn-outline">Sign In</button>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="btn btn-outline">Sign In</button>
+      </div>
     </nav>
 
     <div class="hero-content">
-      <div class="hero-text">
+      <div class="hero-text fade-up">
         <h1>Grow Smarter, Not Harder.</h1>
         <p class="hero-subtitle">
           GreenSense is a smart platform that helps small greenhouse farmers track sales and expenses,
@@ -34,9 +45,17 @@
           <button class="btn btn-ghost">Watch Demo</button>
         </div>
         <p class="hero-note">No credit card required · Designed for small greenhouse farms</p>
+
+        <div class="layout-toggle">
+          <span class="layout-label">Preview layout:</span>
+          <div class="view-toggle">
+            <button class="btn btn-toggle view-btn active" data-view="desktop">Desktop</button>
+            <button class="btn btn-toggle view-btn" data-view="mobile">Mobile</button>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-card">
+      <div class="hero-card fade-up" style="animation-delay: 0.1s;">
         <h2>Today’s Farm Snapshot</h2>
         <div class="hero-metrics">
           <div class="metric">
@@ -111,7 +130,7 @@
         Built with small and mid-sized greenhouse farms in mind.
       </p>
       <div class="specs-grid">
-        <div class="spec-card">
+        <div class="spec-card fade-up">
           <h3>Ideal For</h3>
           <ul>
             <li>Small to mid-size greenhouse farms</li>
@@ -119,7 +138,7 @@
             <li>Co-op and community farms</li>
           </ul>
         </div>
-        <div class="spec-card">
+        <div class="spec-card fade-up" style="animation-delay: 0.1s;">
           <h3>Works On</h3>
           <ul>
             <li>Any modern web browser</li>
@@ -127,7 +146,7 @@
             <li>Tablets in the field</li>
           </ul>
         </div>
-        <div class="spec-card">
+        <div class="spec-card fade-up" style="animation-delay: 0.2s;">
           <h3>Data You Can Track</h3>
           <ul>
             <li>Daily sales by crop & channel</li>
@@ -136,7 +155,7 @@
             <li>Customer types & buyers</li>
           </ul>
         </div>
-        <div class="spec-card">
+        <div class="spec-card fade-up" style="animation-delay: 0.3s;">
           <h3>Insights You Get</h3>
           <ul>
             <li>Top & least profitable crops</li>
@@ -150,7 +169,7 @@
 
     <section class="section visual">
       <div class="visual-inner">
-        <div class="visual-text">
+        <div class="visual-text fade-up">
           <h2>See Your Farm Like a Business Dashboard</h2>
           <p>
             GreenSense gives you a live, visual view of what’s happening in your greenhouse —
@@ -158,7 +177,7 @@
           </p>
           <button class="btn btn-primary">View Sample Dashboard</button>
         </div>
-        <div class="visual-image">
+        <div class="visual-image fade-up" style="animation-delay: 0.1s;">
           <img src="path-to-image.jpg" alt="GreenSense dashboard preview">
         </div>
       </div>
@@ -170,9 +189,10 @@
         Clear, simple insights that help you make confident decisions every day.
       </p>
 
-      <div class="mockup-wrapper fade-up">
+      <div class="mockup-wrapper fade-up" data-active-view="desktop">
         <div class="mockup-frame">
-          <img src="path-to-dashboard-image.jpg" alt="GreenSense Dashboard" class="mockup-image" />
+          <img src="path-to-dashboard-desktop.jpg" alt="GreenSense Desktop Dashboard" class="mockup-image mockup-image-desktop">
+          <img src="path-to-dashboard-mobile.jpg" alt="GreenSense Mobile Dashboard" class="mockup-image mockup-image-mobile">
           <div class="mockup-floating-card float-anim">
             <h4>Today’s Insights</h4>
             <p>Top profitable crop: <strong>Tomatoes</strong> 🍅</p>
@@ -187,19 +207,19 @@
       <h2 class="section-title">How GreenSense Works</h2>
       <p class="section-subtitle">From transaction to insight in three simple steps.</p>
       <div class="steps">
-        <div class="step">
+        <div class="step fade-up">
           <span class="step-number">1</span>
           <h3>Log Sales & Expenses</h3>
           <p>Record what you sold, to whom, and what you spent.</p>
         </div>
 
-        <div class="step">
+        <div class="step fade-up" style="animation-delay: 0.1s;">
           <span class="step-number">2</span>
           <h3>GreenSense Analyzes</h3>
           <p>The system calculates crop-level profit, waste trends, and spending patterns.</p>
         </div>
 
-        <div class="step">
+        <div class="step fade-up" style="animation-delay: 0.2s;">
           <span class="step-number">3</span>
           <h3>Act on Clear Guidance</h3>
           <p>Get recommendations to adjust planting, pricing, and purchasing decisions.</p>
@@ -213,7 +233,7 @@
         Try GreenSense free for 14 days. Cancel anytime.
       </p>
 
-      <div class="pricing-card">
+      <div class="pricing-card fade-up">
         <h3>GreenSense Starter</h3>
         <p class="price">$19<span>/month</span></p>
         <ul class="pricing-list">
@@ -232,5 +252,83 @@
   <footer>
     <p>© 2025 GreenSense. All rights reserved.</p>
   </footer>
+
+  <script>
+    (function() {
+      const storedTheme = localStorage.getItem('greensense-theme');
+      if (storedTheme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.nav');
+
+      if (themeToggle) {
+        const updateThemeIcon = () => {
+          if (document.body.classList.contains('light-theme')) {
+            themeToggle.textContent = '🌞';
+          } else {
+            themeToggle.textContent = '🌙';
+          }
+        };
+
+        updateThemeIcon();
+
+        themeToggle.addEventListener('click', function() {
+          document.body.classList.toggle('light-theme');
+          const isLight = document.body.classList.contains('light-theme');
+          localStorage.setItem('greensense-theme', isLight ? 'light' : 'dark');
+          updateThemeIcon();
+        });
+      }
+
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', function() {
+          nav.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            nav.classList.remove('open');
+          });
+        });
+      }
+
+      const observerOptions = {
+        threshold: 0.15
+      };
+
+      const revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(function(el) {
+        revealObserver.observe(el);
+      });
+
+      const viewButtons = document.querySelectorAll('.view-btn');
+      const mockupWrapper = document.querySelector('.mockup-wrapper');
+
+      if (viewButtons.length && mockupWrapper) {
+        viewButtons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const view = btn.dataset.view;
+            mockupWrapper.setAttribute('data-active-view', view);
+            viewButtons.forEach(function(b) {
+              b.classList.toggle('active', b === btn);
+            });
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
